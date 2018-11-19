@@ -4,10 +4,14 @@ import { Card, Image, Button } from 'semantic-ui-react';
 
 
 
+
+
 export default class Movie extends React.Component {
-  viewDetails = (movie) => {
-    this.props.viewDetails(movie);
+
+  clickDetails = () => {
+    this.props.viewDetails(this.props.movie);
   }
+  
   
   render() {
     const img_url = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/'; 
@@ -39,7 +43,8 @@ export default class Movie extends React.Component {
           </Card.Meta>
          
         </Card.Content>
-        <Button attached='bottom' onClick={this.viewDetails(this.props.movie)}>View Deatils</Button>
+
+        <Button attached='bottom' onClick={this.clickDetails}>View Deatils</Button>
       </Card>
     )
   }

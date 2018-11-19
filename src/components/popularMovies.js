@@ -5,6 +5,11 @@ import Movie from './movie';
 
 export default class PopularMovies extends React.Component {
   
+
+  viewDetails = (movie) => {
+    this.props.viewDetails(movie);
+  }
+
   
   render() {
     const main_url = 'https://api.themoviedb.org/3/movie/popular';
@@ -24,7 +29,7 @@ export default class PopularMovies extends React.Component {
               <Movie 
                 movie={movie}
                 genres={this.props.genres}
-                viewDetails={this.props.viewDetails}
+                viewDetails={this.viewDetails}
               />
             </Grid.Column>
           )}
