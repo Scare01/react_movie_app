@@ -18,22 +18,17 @@ export default class PopularMovies extends React.Component {
         url={main_url+api_key}
       >
       {({ data }) => (
-        <Grid columns={4}>
-          
-            
-              
-              {data.results.map(movie => 
-                <Grid.Column key={movie.id}>
-                  <Movie 
-                    movie={movie}
-                    genres={this.props.genres}
-                  />
-                </Grid.Column>
-              )}
-            
-          
+        <Grid centered columns={4}>
+          {data.results.map(movie => 
+            <Grid.Column key={movie.id}>
+              <Movie 
+                movie={movie}
+                genres={this.props.genres}
+                viewDetails={this.props.viewDetails}
+              />
+            </Grid.Column>
+          )}
         </Grid>
-
       )}
       </Fetch>
 

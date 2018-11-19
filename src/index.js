@@ -2,88 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'semantic-ui-css/semantic.min.css';
-
+import genresFromFile from './components/genres.json';
 
 import PopularMovies from './components/popularMovies';
 
-const genres = [
-   {
-      "id": 28,
-      "name": "Action"
-    },
-    {
-      "id": 12,
-      "name": "Adventure"
-    },
-    {
-      "id": 16,
-      "name": "Animation"
-    },
-    {
-      "id": 35,
-      "name": "Comedy"
-    },
-    {
-      "id": 80,
-      "name": "Crime"
-    },
-    {
-      "id": 99,
-      "name": "Documentary"
-    },
-    {
-      "id": 18,
-      "name": "Drama"
-    },
-    {
-      "id": 10751,
-      "name": "Family"
-    },
-    {
-      "id": 14,
-      "name": "Fantasy"
-    },
-    {
-      "id": 36,
-      "name": "History"
-    },
-    {
-      "id": 27,
-      "name": "Horror"
-    },
-    {
-      "id": 10402,
-      "name": "Music"
-    },
-    {
-      "id": 9648,
-      "name": "Mystery"
-    },
-    {
-      "id": 10749,
-      "name": "Romance"
-    },
-    {
-      "id": 878,
-      "name": "Science Fiction"
-    },
-    {
-      "id": 10770,
-      "name": "TV Movie"
-    },
-    {
-      "id": 53,
-      "name": "Thriller"
-    },
-    {
-      "id": 10752,
-      "name": "War"
-    },
-    {
-      "id": 37,
-      "name": "Western"
-    }
-] 
+const genres = genresFromFile;
 
 class App extends React.Component {
 
@@ -91,15 +14,22 @@ class App extends React.Component {
     genres: [...genres],
   }
 
+  viewDetails = (movie) => {
+    console.log(movie.id);
+  }
+
   render() {
     return (
-      <>
+      <div id='content'>
 
      
       
-      <PopularMovies genres={this.state.genres}/>
+      <PopularMovies 
+        genres={this.state.genres}
+        viewDetails={this.viewDetails}
+      />
       
-      </>
+      </div>
     )
   }
 }
