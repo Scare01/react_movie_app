@@ -14,30 +14,31 @@ class App extends React.Component {
 
   state = {
     genres: [...genres],
-    movie_detail_id: null,
-    movie: null,
+    movieId: null,
+    
   }
 
   goHome = () => {
     this.setState({
-      movie_detail_id: null,
+      movieId: null,
     })
   }
 
-  viewDetails = (movieDetail) => {
+  viewDetails = (movie) => {
    this.setState({
-     movie_detail_id: movieDetail.id,
-     movie: movieDetail,
+     movieId: movie.id,
    });
-   console.log(movieDetail.id);
+   
   }
 
   render() {
-    if (this.state.movie_detail_id) {
+    if (this.state.movieId) {
       return (
         <MovieDetail 
-          movie={this.state.movie}
+          movieId={this.state.movieId}
           goHome={this.goHome}
+          viewDetails={this.viewDetails}
+          genres={this.state.genres}
         />
       )
     }

@@ -28,22 +28,23 @@ export default class Movie extends React.Component {
           </Card.Header>
           <Card.Meta id="genres">
             
-            {this.props.movie.genre_ids.map(genre =>
+            {this.props.genres ? 
+              this.props.movie.genre_ids.map(genre =>
 
-              genres.map(gen =>
+                genres.map(gen =>
 
-                (gen.id === genre) ? 
-                  gen.name + " "
-                : null
+                  (gen.id === genre) ? 
+                   gen.name + " "
+                  : null
+                )
               )
-              
-            )}
-            
+            : null             
+            }
     
           </Card.Meta>
          
         </Card.Content>
-
+                  
         <Button attached='bottom' onClick={this.clickDetails}>View Deatils</Button>
       </Card>
     )
