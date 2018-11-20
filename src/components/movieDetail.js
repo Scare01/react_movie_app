@@ -13,6 +13,7 @@ export default class MovieDetail extends React.Component {
   }
 
   render() {
+    
     return (
       <div id="content">
         <Details 

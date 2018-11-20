@@ -6,7 +6,9 @@ import Movie from './movie';
 
 export default class Recommendations extends React.Component {
 
-
+  viewDetails = (movie) => {
+    this.props.viewDetails(movie);
+  }
 
 
   render(){
@@ -25,7 +27,7 @@ export default class Recommendations extends React.Component {
             <Grid.Column key={movie.id}>
               <Movie 
                 movie={movie}
-                viewDetails={this.props.viewDetails}
+                viewDetails={this.viewDetails}
               />
             </Grid.Column>
           )}

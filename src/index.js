@@ -15,6 +15,7 @@ class App extends React.Component {
   state = {
     genres: [...genres],
     movieId: null,
+    prevMovieId: null,
     
   }
 
@@ -25,14 +26,19 @@ class App extends React.Component {
   }
 
   viewDetails = (movie) => {
-   this.setState({
+    
+    this.setState({
      movieId: movie.id,
-   });
+    });
+   console.log("in viewDetail function movieId = " + this.state.movieId);
+   console.log("in viewDetail function preMovieId = " + this.state.prevMovieId);
    
   }
 
   render() {
     if (this.state.movieId) {
+      console.log("in render movieId = " + this.state.movieId);
+      console.log("in render prevMovieId = " + this.state.prevMovieId);
       return (
         <MovieDetail 
           movieId={this.state.movieId}
@@ -42,6 +48,7 @@ class App extends React.Component {
         />
       )
     }
+    
     return (
       <div id='content'>
 
